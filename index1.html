@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Music Player</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app-header">
+            <h1>🎵 Melody Music</h1>
+            <p>Your music, your mood.</p>
+        </header>
+
+        <section class="search-section">
+            <input type="search" id="searchInput"
+                   placeholder="Search songs, artists, genres...">
+
+            <select id="artistFilter">
+                <option value="all">All Artists</option>
+            </select>
+
+            <select id="genreFilter">
+                <option value="all">All Genres</option>
+            </select>
+        </section>
+
+        <section class="quick-links">
+            <button id="showAllBtn">🏠 All Songs</button>
+            <button id="showLikedBtn">❤️ Liked Songs</button>
+            <button id="showRecommendedBtn">✨ Recommended</button>
+        </section>
+
+        <main class="content">
+            <section class="library">
+                <h2 id="sectionTitle">All Songs</h2>
+                <div id="songGrid" class="song-grid"></div>
+                <p id="emptyMessage" hidden>No songs found.</p>
+
+                <section class="artist-section">
+                    <h2>🎤 Browse Artists</h2>
+                    <div id="artistList" class="artist-list"></div>
+                </section>
+
+                <section class="custom-playlists">
+                    <h2>🎶 My Playlists</h2>
+
+                    <form id="playlistForm">
+                        <input type="text" id="playlistName"
+                               placeholder="New playlist name"
+                               maxlength="40" required>
+                        <button type="submit">Create</button>
+                    </form>
+
+                    <div class="playlist-tools">
+                        <select id="customPlaylistSelect">
+                            <option value="">Select a playlist</option>
+                        </select>
+                        <button id="addToPlaylistBtn" type="button">
+                            Add Current Song
+                        </button>
+                    </div>
+
+                    <ul id="customPlaylistSongs"></ul>
+                </section>
+            </section>
+
+            <aside class="player">
+                <div class="album-art" id="albumArt">🎧</div>
+
+                <h2 id="songTitle">Select a Song</h2>
+                <p id="artistName">Unknown Artist</p>
+                <p id="songGenre" class="muted">Genre</p>
+
+                <button id="likeBtn" class="like-btn"
+                        aria-label="Like song">♡ Like</button>
+
+                <audio id="audio" preload="metadata"></audio>
+
+                <div class="progress-container">
+                    <span id="currentTime">0:00</span>
+                    <input type="range" id="progress"
+                           min="0" max="100" value="0"
+                           aria-label="Song progress">
+                    <span id="duration">0:00</span>
+                </div>
+
+                <div class="controls">
+                    <button id="prevBtn" aria-label="Previous song">⏮</button>
+                    <button id="playBtn" class="play-btn"
+                            aria-label="Play">▶</button>
+                    <button id="nextBtn" aria-label="Next song">⏭</button>
+                </div>
+
+                <div class="volume-container">
+                    <label for="volume">🔊 Volume</label>
+                    <input type="range" id="volume"
+                           min="0" max="1" step="0.01"
+                           value="0.7">
+                </div>
+
+                <label class="autoplay">
+                    <input type="checkbox" id="autoplay" checked>
+                    Autoplay next song
+                </label>
+
+                <h3>Up Next</h3>
+                <ul id="upNextList"></ul>
+            </aside>
+        </main>
+
+        <footer>
+            <p>Made with ♡ for music lovers</p>
+        </footer>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

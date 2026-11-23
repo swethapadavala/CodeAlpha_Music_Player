@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #10121b;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+button, input, select {
+    font: inherit;
+}
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #303447;
+    color: white;
+    transition: 0.2s;
+}
+button:hover {
+    background: #454b63;
+}
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #fb7185;
+    outline-offset: 2px;
+}
+.app {
+    max-width: 1250px;
+    margin: auto;
+    padding: 24px;
+}
+.app-header {
+    margin-bottom: 25px;
+}
+.app-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+.app-header p,
+.muted {
+    color: #a1a1aa;
+}
+.search-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+input, select {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #36394b;
+    border-radius: 8px;
+    background: #1b1e2b;
+    color: white;
+    padding: 12px;
+}
+.quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.quick-links button {
+    background: #272b3c;
+}
+.content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 25px;
+    align-items: start;
+}
+.library h2,
+.artist-section h2,
+.custom-playlists h2 {
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+.song-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+}
+
+.song-card {
+    background: #1b1e2b;
+    border: 1px solid #292d3d;
+    border-radius: 12px;
+    padding: 13px;
+    min-width: 0;
+    transition: transform 0.2s, background 0.2s;
+}
+.song-card:hover {
+    transform: translateY(-3px);
+    background: #25293a;
+}
+.song-cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #6d5dfc, #e879a9);
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+.song-card h3 {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+    margin-bottom: 6px;
+}
+.song-card p {
+    color: #a1a1aa;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.card-actions {
+    display: flex;
+    gap: 6px;
+}
+.card-actions button {
+    flex: 1;
+    padding: 8px 5px;
+    font-size: 12px;
+}
+.card-actions .card-like {
+    flex: 0 0 auto;
+}
+.card-like.liked,
+.like-btn.liked {
+    color: #fb7185;
+}
+.artist-section,
+.custom-playlists {
+    margin-top: 32px;
+}
+.artist-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.artist-list button {
+    border-radius: 20px;
+    background: #292d40;
+}
+
+.artist-list button.active {
+    background: #fb7185;
+}
+
+.player {
+    position: sticky;
+    top: 20px;
+    text-align: center;
+    padding: 22px;
+    border: 1px solid #34384a;
+    border-radius: 18px;
+    background: #1b1e2b;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+.album-art {
+    width: 155px;
+    height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #6d5dfc, #e879a9);
+    font-size: 65px;
+}
+.player h2 {
+    font-size: 20px;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+}
+.player > p {
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+.like-btn {
+    margin: 10px 0 18px;
+    background: #303447;
+}
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #cbd5e1;
+}
+#progress {
+    flex: 1;
+    padding: 0;
+    border: none;
+    accent-color: #fb7185;
+    cursor: pointer;
+}
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 18px 0;
+}
+.controls button {
+    font-size: 23px;
+    background: transparent;
+    padding: 8px;
+}
+.controls .play-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fb7185;
+    font-size: 23px;
+}
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13px;
+    margin: 16px 0;
+}
+#volume {
+    width: 110px;
+    padding: 0;
+    border: none;
+    accent-color: #fb7185;
+    cursor: pointer;
+}
+.autoplay {
+    display: block;
+    color: #cbd5e1;
+    font-size: 13px;
+    margin: 15px 0 22px;
+}
+.autoplay input {
+    width: auto;
+    accent-color: #fb7185;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.player h3 {
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+#upNextList,
+#customPlaylistSongs {
+    list-style: none;
+    text-align: left;
+}
+#upNextList li,
+#customPlaylistSongs li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+#upNextList li {
+    cursor: pointer;
+}
+
+#upNextList li:hover,
+#customPlaylistSongs li:hover {
+    background: #292d40;
+}
+
+#upNextList li.active {
+    color: #fb7185;
+}
+#upNextList button,
+#customPlaylistSongs button {
+    padding: 5px 8px;
+    flex-shrink: 0;
+}
+#playlistForm {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+#playlistForm button {
+    background: #6658e8;
+}
+.playlist-tools {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+#addToPlaylistBtn {
+    background: #303447;
+}
+#emptyMessage {
+    color: #a1a1aa;
+    margin-top: 15px;
+}
+footer {
+    text-align: center;
+    color: #71717a;
+    font-size: 13px;
+    margin-top: 35px;
+}
+@media (max-width: 850px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .player {
+        position: static;
+        max-width: 480px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 550px) {
+    .app {
+        padding: 15px;
+    }
+    .app-header h1 {
+        font-size: 26px;
+    }
+    .search-section {
+        grid-template-columns: 1fr;
+    }
+    .song-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+}
